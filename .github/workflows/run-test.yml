@@ -1,0 +1,15 @@
+name: Node Test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build_and_test:
+    uses: homebridge/.github/.github/workflows/nodejs-build-and-test.yml@main
+    with:
+      enable_coverage: false
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
