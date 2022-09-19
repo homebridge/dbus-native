@@ -38,9 +38,9 @@
     "dbus2js": "./bin/dbus2js.js"
   },
   "dependencies": {
+    "@homebridge/long": "^5.2.1",
     "event-stream": "^4.0.0",
     "hexy": "^0.2.10",
-    "@homebridge/long": "^5.2.1",
     "optimist": "^0.6.1",
     "put": "0.0.6",
     "safe-buffer": "^5.1.1",
@@ -59,6 +59,7 @@
     "husky": "^1.0.0",
     "lint-staged": "^13.0.3",
     "mocha": "*",
+    "nyc": "^15.1.0",
     "prettier": "^1.7.4"
   },
   "scripts": {
