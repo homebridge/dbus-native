@@ -2,7 +2,9 @@
 
 const fs = require('fs');
 const xml2js = require('xml2js');
-const xml2js_opts = Object.assign({}, xml2js.defaults["0.1"], { explicitArray: true });
+const xml2js_opts = Object.assign({}, xml2js.defaults['0.1'], {
+  explicitArray: true
+});
 const dbus = require('../index');
 const optimist = require('optimist');
 
@@ -65,9 +67,7 @@ if (!argv.server) {
         output.push('            if (err) throw new Error(err);');
         output.push('        });');
         output.push(
-          `        var signalFullName = bus.mangle('${argv.path}', '${
-            ifaceName
-          }', signame);`
+          `        var signalFullName = bus.mangle('${argv.path}', '${ifaceName}', signame);`
         );
         output.push(
           '        bus.signals.on(signalFullName, function(messageBody) {'

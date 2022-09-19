@@ -31,9 +31,7 @@ const service = sessionBus.getService(serviceName);
 service.getInterface(objectPath, interfaceName, (err, iface) => {
   if (err) {
     console.error(
-      `Failed to request interface '${interfaceName}' at '${objectPath}' : ${
-        err
-      }`
+      `Failed to request interface '${interfaceName}' at '${objectPath}' : ${err}`
         ? err
         : '(no error)'
     );

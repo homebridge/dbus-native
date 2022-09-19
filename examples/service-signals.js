@@ -49,9 +49,7 @@ sessionBus.requestName(serviceName, 0x4, (err, retCode) => {
 	information
 	*/
     throw new Error(
-      `Failed to request service name "${
-        serviceName
-      }". Check what return code "${retCode}" means.`
+      `Failed to request service name "${serviceName}". Check what return code "${retCode}" means.`
     );
   }
 });

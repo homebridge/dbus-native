@@ -55,9 +55,7 @@ sessionBus.requestName(serviceName, 0x4, (err, retCode) => {
 	information
 	*/
     throw new Error(
-      `Failed to request service name "${
-        serviceName
-      }". Check what return code "${retCode}" means.`
+      `Failed to request service name "${serviceName}". Check what return code "${retCode}" means.`
     );
   }
 });
@@ -183,7 +181,11 @@ function proceed() {
 				MUST be single types, so string, integers, double, booleans, etc.) and the second being
 				the value (here, an int32 ; keys can be any type, including complex one: struct, etc.)
 			*/
-      return [[key1, i1], [key2, i2], [key3, i3]];
+      return [
+        [key1, i1],
+        [key2, i2],
+        [key3, i3]
+      ];
     }
   };
 
