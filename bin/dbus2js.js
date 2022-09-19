@@ -6,9 +6,12 @@ const xml2js_opts = Object.assign({}, xml2js.defaults['0.1'], {
   explicitArray: true
 });
 const dbus = require('../index');
-const optimist = require('optimist');
+const minimist = require('minimist');
 
-var argv = optimist.boolean(['server', 'dump']).argv;
+var argv = minimist(process.argv.slice(2), {
+  boolean: ['server', 'dump', 'xml'],
+  string: ['bus', 'service', 'path']
+});
 
 function die(err) {
   console.log(err);

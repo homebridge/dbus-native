@@ -4,14 +4,15 @@
 const net = require('net');
 const abs = require('abstract-socket');
 const through2 = require('through2');
-const optimist = require('optimist');
+const minimist = require('minimist');
 const message = require('../lib/message');
 const readLine = require('../lib/readline');
 
 var sessionBusAddress = process.env.DBUS_SESSION_BUS_ADDRESS;
 var m = sessionBusAddress.match(/abstract=([^,]+)/);
 
-var isSystemBus = optimist.boolean(['system']).argv.system;
+var isSystemBus = minimist(process.argv.slice(2), { boolean: 'system' }).system;
+console.log(isSystemBus);
 
 var address = isSystemBus ? '/var/run/dbus/system_bus_socket' : `\0${m[1]}`;
 
