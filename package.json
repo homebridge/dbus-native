@@ -1,7 +1,7 @@
 {
   "name": "@homebridge/dbus-native",
   "author": "Andrey Sidorov <sidorares@yandex.com>",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "keywords": [
     "dbus",
     "dcop",
