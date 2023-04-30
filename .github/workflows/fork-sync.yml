@@ -14,4 +14,4 @@ jobs:
       - uses: tgymnich/fork-sync@v1
         with:
           base: master
-          head: master
+          head: main
