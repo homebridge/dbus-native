@@ -2,9 +2,10 @@ node-dbus
 ===========
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/sidorares/dbus-native.svg)](https://greenkeeper.io/)
+[![Node Test](https://github.com/homebridge/dbus-native/actions/workflows/run-test.yml/badge.svg)](https://github.com/homebridge/dbus-native/actions/workflows/run-test.yml)
+
 D-bus protocol client and server for node.js
 
-[![Build Status](https://secure.travis-ci.org/sidorares/dbus-native.png)](http://travis-ci.org/sidorares/dbus-native)
 
 Fork Status
 ------------
