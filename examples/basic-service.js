@@ -81,18 +81,18 @@ function proceed() {
 
   // Then we need to create the interface implementation (with actual functions)
   var iface = {
-    SayHello: function() {
+    SayHello: function () {
       return 'Hello, world!';
     },
-    GiveTime: function() {
+    GiveTime: function () {
       return new Date().toString();
     },
-    Capitalize: function(str) {
+    Capitalize: function (str) {
       return str.toUpperCase();
     },
     Flag: true,
     StringProp: 'initial string',
-    emit: function() {
+    emit: function () {
       // no nothing, as usual
     }
   };

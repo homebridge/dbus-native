@@ -32,8 +32,6 @@ service.getInterface(objectPath, interfaceName, (err, iface) => {
   if (err) {
     console.error(
       `Failed to request interface '${interfaceName}' at '${objectPath}' : ${err}`
-        ? err
-        : '(no error)'
     );
     process.exit(1);
   }
@@ -54,7 +52,7 @@ service.getInterface(objectPath, interfaceName, (err, iface) => {
     });
   });
 
-  iface.on('Rand', nb => {
+  iface.on('Rand', (nb) => {
     console.log(`Received Rand: ${nb}`);
   });
 });

@@ -39,7 +39,7 @@ conn.message({
   body: ["type='method_return'"]
 });
 
-conn.on('message', function(msg) {
+conn.on('message', function (msg) {
   if (!msg.body) return;
   //console.log(JSON.stringify(msg, 0, 4)); //TODO: dbus-monitor pretty-print
 });

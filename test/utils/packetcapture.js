@@ -22,25 +22,25 @@ function nextPacketPos(b) {
 var packetfile = fs.createWriteStream('./packets.bin');
 
 net
-  .createServer(function(s) {
+  .createServer(function (s) {
     var buff = '';
     var b = buffs();
     var connected = false;
     var cli = abs.createConnection('\0/tmp/dbus-WDSwP4V64O');
-    s.on('data', function(d) {
+    s.on('data', function (d) {
       if (connected) {
         cli.write(d);
       } else {
         buff += d.toString();
       }
     });
-    s.on('end', function() {
+    s.on('end', function () {
       packetfile.end(b.toBuffer());
     });
-    cli.on('end', function() {
+    cli.on('end', function () {
       packetfile.end(b.toBuffer());
     });
-    cli.on('data', function(d) {
+    cli.on('data', function (d) {
       console.error(hexy(d, { prefix: 'from bus   ' }));
       b.push(d);
       function extractPacket() {

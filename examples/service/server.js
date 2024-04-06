@@ -2,7 +2,7 @@ const dbus = require('../../index');
 
 var bus = dbus.sessionBus();
 var name = 'vasya.pupkin';
-bus.connection.on('message', function(msg) {
+bus.connection.on('message', function (msg) {
   if (
     msg.destination === name &&
     msg['interface'] === 'org.vasya.pupkin.reverser' &&
@@ -14,12 +14,7 @@ bus.connection.on('message', function(msg) {
       replySerial: msg.serial,
       sender: name,
       signature: 's',
-      body: [
-        msg.body[0]
-          .split('')
-          .reverse()
-          .join('')
-      ]
+      body: [msg.body[0].split('').reverse().join('')]
     };
     bus.invoke(reply);
   }

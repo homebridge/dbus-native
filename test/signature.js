@@ -1,4 +1,4 @@
-describe('Signature parser', function() {
+describe('Signature parser', function () {
   //beforeEach(function(done) {
   //});
   //afterEach(function(done) {

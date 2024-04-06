@@ -36,8 +36,6 @@ targetService.getInterface(targetObjectPath, targetIfaceName, (err, iface) => {
   if (err || !iface) {
     console.error(
       `Could not query interface '${targetIfaceName}', the error was: ${err}`
-        ? err
-        : '(no error)'
     );
     process.exit(1);
   }
@@ -46,14 +44,14 @@ targetService.getInterface(targetObjectPath, targetIfaceName, (err, iface) => {
 		Here, 'iface' represents the service's interface. It is made an event emitter, so to listen to signals, we
 		just have to do like any other signals: on('signalName')
 	*/
-  iface.on('Tick', date => {
+  iface.on('Tick', (date) => {
     console.log(`Signal 'Tick' received! The date is: '${date}'`);
   });
 
   /*
 		Here we listen for the second signal.
 	*/
-  iface.on('Rand', randomNumber => {
+  iface.on('Rand', (randomNumber) => {
     console.log(`We've got our random number: ${randomNumber}`);
   });
 });

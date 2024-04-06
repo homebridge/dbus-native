@@ -15,8 +15,8 @@ function test(signature, data) {
   }
 }
 
-describe('when signature is a{sX} and hashAsObject is used', function() {
-  xit('serialises to expected value', function() {
+describe('when signature is a{sX} and hashAsObject is used', function () {
+  xit('serialises to expected value', function () {
     test('a{sv}', {
       test1: { subobj: { a1: 10, a2: 'qqq', a3: 1.11 }, test2: 12 }
     });

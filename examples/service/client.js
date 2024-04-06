@@ -12,7 +12,7 @@ bus.invoke(
     signature: 's',
     body: ['does it really work?']
   },
-  function(err, res) {
+  function (err, res) {
     console.log(res);
   }
 );

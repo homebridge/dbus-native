@@ -81,7 +81,7 @@ function proceed() {
 			Here we use the neat ES6 syntax, the spread operator (...), this basically says "bind the first argument in
 			the variable 'signalName' and all others in 'signalOutputParams'"
 		*/
-    emit: function(signalName, ...signalOutputParams) {
+    emit: function (signalName, ...signalOutputParams) {
       /*
 				Now we are in the body of the 'emit()' function of the interface.
 				Just to be clear: you dont NEED to put ANYTHING in this body. When you call 'bus.exportInterface()',
