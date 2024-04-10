@@ -1,7 +1,7 @@
 const dbus = require('../../index');
 const addrx11 = require('../../lib/address-x11');
 
-addrx11(function(err, address) {
+addrx11(function (err, address) {
   var bus = dbus.sessionBus({ busAddress: address });
   var name = 'some.name';
   var iface = 'com.example.service';
@@ -16,7 +16,7 @@ addrx11(function(err, address) {
         signature: 's',
         body: ['does it really work?']
       },
-      function(err, res) {
+      function (err, res) {
         console.log(err, res);
       }
     );

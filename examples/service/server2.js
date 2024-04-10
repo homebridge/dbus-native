@@ -28,19 +28,19 @@ var exampleIface = {
 };
 
 var example = {
-  respondWithDouble: function(s) {
+  respondWithDouble: function (s) {
     console.log(`Received "${s}'`);
     return 3.14159;
   },
-  timesTwo: function(d) {
+  timesTwo: function (d) {
     console.log(d);
     return d * 2;
   },
-  doStuff: function(s) {
+  doStuff: function (s) {
     return `Received "${s}" - this is a reply`;
   },
   TestProperty: 42,
-  emit: function(name, param1, param2) {
+  emit: function (name, param1, param2) {
     console.log('signal emit', name, param1, param2);
   }
 };

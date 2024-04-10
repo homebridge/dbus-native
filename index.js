@@ -27,7 +27,7 @@ function createStream(opts) {
     var familyParams = address.split(':');
     var family = familyParams[0];
     var params = {};
-    familyParams[1].split(',').map(function(p) {
+    familyParams[1].split(',').map(function (p) {
       var keyVal = p.split('=');
       params[keyVal[0]] = keyVal[1];
     });
@@ -76,25 +76,25 @@ function createConnection(opts) {
   var stream = (self.stream = createStream(opts));
   stream.setNoDelay();
 
-  stream.on('error', function(err) {
+  stream.on('error', function (err) {
     // forward network and stream errors
     self.emit('error', err);
   });
 
-  stream.on('end', function() {
+  stream.on('end', function () {
     self.emit('end');
-    self.message = function() {
+    self.message = function () {
       console.warn("Didn't write bytes to closed stream");
     };
   });
 
-  self.end = function() {
+  self.end = function () {
     stream.end();
     return self;
   };
 
   var handshake = opts.server ? serverHandshake : clientHandshake;
-  handshake(stream, opts, function(error, guid) {
+  handshake(stream, opts, function (error, guid) {
     if (error) {
       return self.emit('error', error);
     }
@@ -102,7 +102,7 @@ function createConnection(opts) {
     self.emit('connect');
     message.unmarshalMessages(
       stream,
-      function(message) {
+      function (message) {
         self.emit('message', message);
       },
       opts
@@ -112,11 +112,11 @@ function createConnection(opts) {
   self._messages = [];
 
   // pre-connect version, buffers all messages. replaced after connect
-  self.message = function(msg) {
+  self.message = function (msg) {
     self._messages.push(msg);
   };
 
-  self.once('connect', function() {
+  self.once('connect', function () {
     self.state = 'connected';
     for (var i = 0; i < self._messages.length; ++i) {
       stream.write(message.marshall(self._messages[i]));
@@ -124,7 +124,7 @@ function createConnection(opts) {
     self._messages.length = 0;
 
     // no need to buffer once connected
-    self.message = function(msg) {
+    self.message = function (msg) {
       stream.write(message.marshall(msg));
     };
   });
@@ -132,12 +132,12 @@ function createConnection(opts) {
   return self;
 }
 
-module.exports.createClient = function(params) {
+module.exports.createClient = function (params) {
   var connection = createConnection(params || {});
   return new MessageBus(connection, params || {});
 };
 
-module.exports.systemBus = function() {
+module.exports.systemBus = function () {
   return module.exports.createClient({
     busAddress:
       process.env.DBUS_SYSTEM_BUS_ADDRESS ||
@@ -145,7 +145,7 @@ module.exports.systemBus = function() {
   });
 };
 
-module.exports.sessionBus = function(opts) {
+module.exports.sessionBus = function (opts) {
   return module.exports.createClient(opts);
 };
 

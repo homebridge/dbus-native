@@ -37,20 +37,20 @@ function getXML(callback) {
 }
 
 if (argv.dump) {
-  getXML(function(err, xml) {
+  getXML(function (err, xml) {
     console.log(xml);
     bus.connection.end();
   });
 }
 
 if (!argv.server) {
-  getXML(function(err, xml) {
+  getXML(function (err, xml) {
     if (err) die(err);
 
     var output = [];
 
     var parser = new xml2js.Parser(xml2js_opts);
-    parser.parseString(xml, function(err, result) {
+    parser.parseString(xml, function (err, result) {
       if (err) die(err);
 
       var ifaceName, method, property, iface, arg, signature;

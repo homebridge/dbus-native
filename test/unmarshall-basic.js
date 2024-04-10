@@ -52,13 +52,13 @@ var b30000bytes = Buffer.alloc(30000, 60);
 var str30000chars = b30000bytes.toString('ascii');
 
 function expectMarshallToThrowOnBadArguments(badSig, badData, errorRegex) {
-  assert.throws(function() {
+  assert.throws(function () {
     marshall(badSig, badData);
   }, errorRegex);
 }
 
-describe('marshall', function() {
-  it('throws error on bad data', function() {
+describe('marshall', function () {
+  it('throws error on bad data', function () {
     var badData = [
       ['s', [3], /Expected string or buffer argument/],
       ['s', ['as\0df'], /String contains null byte/],
@@ -145,7 +145,7 @@ describe('marshall', function() {
       expectMarshallToThrowOnBadArguments(badSig, badDatum, errorRegex);
     }
   });
-  it('throws error on bad signature', function() {
+  it('throws error on bad signature', function () {
     var badSig = '1';
     var badData = 1;
     expectMarshallToThrowOnBadArguments(
@@ -156,7 +156,7 @@ describe('marshall', function() {
   });
 });
 
-describe('marshall/unmarshall', function() {
+describe('marshall/unmarshall', function () {
   // signature, data, not expected to fail?, data after unmarshall (when expected to convert to canonic form and different from input), unmarshall_options
   var tests = {
     'simple types': [
@@ -414,14 +414,14 @@ describe('marshall/unmarshall', function() {
       )}`;
       if (testData[2] === false) {
         // should fail
-        (function(testData) {
-          it(testDesc, function() {
+        (function (testData) {
+          it(testDesc, function () {
             test(testData[0], testData[1], testData[3], testData[4]);
           });
         })(testData);
       } else {
-        (function(testData) {
-          it(testDesc, function() {
+        (function (testData) {
+          it(testDesc, function () {
             test(testData[0], testData[1], testData[3], testData[4]);
           });
         })(testData);

@@ -9,7 +9,7 @@ function buff2msg(buff) {
   return message.unmarshall(buff);
 }
 
-describe('message marshall/unmarshall', function() {
+describe('message marshall/unmarshall', function () {
   var tests = require('./testdata.js');
   var testName, testData, testNum;
   for (testName in tests) {
@@ -19,8 +19,8 @@ describe('message marshall/unmarshall', function() {
         testData[1]
       )}`;
       if (testData[2] !== false) {
-        (function(testData) {
-          it(testDesc, function() {
+        (function (testData) {
+          it(testDesc, function () {
             var msg = {
               type: 1,
               serial: 1,

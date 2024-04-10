@@ -1,18 +1,25 @@
-node-dbus
-===========
+<p align="center">
+  <a href="https://homebridge.io"><img src="https://raw.githubusercontent.com/homebridge/branding/latest/logos/homebridge-color-round-stylized.png" height="140"></a>
+</p>
+
+<span align="center">
+
+# D-Bus Native
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/sidorares/dbus-native.svg)](https://greenkeeper.io/)
 [![Node Test](https://github.com/homebridge/dbus-native/actions/workflows/run-test.yml/badge.svg)](https://github.com/homebridge/dbus-native/actions/workflows/run-test.yml)
 
-D-bus protocol client and server for node.js
+</span>
 
+D-bus protocol client and server for node.js
 
 Fork Status
 ------------
 
-This fork is maintained with the following two changes:
+This fork is maintained with the following changes:
 * Removed the optional `abstract-socket` dependency for faster installs
 * Moved to our `long.js` fork to work around a crash on `ARMv6` platforms running node 16.1+
+* Updated dependencies (including `prettier`, which has made style changes to a lot of files)
 
 Installation
 ------------

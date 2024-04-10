@@ -96,33 +96,33 @@ function proceed() {
 
   // Then we need to create the interface implementation (with actual functions)
   iface = {
-    SayHello: function() {
+    SayHello: function () {
       return 'Hello, world!'; // This is how to return a single string
     },
-    GetInt16: function() {
+    GetInt16: function () {
       var min = -0x7fff - 1;
       var max = 0x7fff;
       return Math.round(Math.random() * (max - min) + min);
     },
-    GetUInt16: function() {
+    GetUInt16: function () {
       var min = 0;
       var max = 0xffff;
       return Math.round(Math.random() * (max - min) + min);
     },
-    GetInt32: function() {
+    GetInt32: function () {
       var min = -0x7fffffff - 1;
       var max = 0x7fffffff;
       return Math.round(Math.random() * (max - min) + min);
     },
-    GetUInt32: function() {
+    GetUInt32: function () {
       var min = 0;
       var max = 0xffffffff;
       return Math.round(Math.random() * (max - min) + min);
     },
-    GetBool: function() {
+    GetBool: function () {
       return Math.random() >= 0.5 ? true : false;
     },
-    GetDouble: function() {
+    GetDouble: function () {
       /*
 				We are only returning a number between 0 and 1 here, but this is just for the test.
 				Javascript can handle number between Number.MIN_VALUE and Number.MAX_VALUE, which are 5e-234 and 1.7976931348623157e+308 respectively.
@@ -130,12 +130,12 @@ function proceed() {
 			*/
       return Math.random();
     },
-    GetByte: function() {
+    GetByte: function () {
       var min = 0x00;
       var max = 0xff;
       return Math.round(Math.random() * (max - min) + min);
     },
-    GetArrayOfStrings: function(n) {
+    GetArrayOfStrings: function (n) {
       // Check that we requested a positive number of elements, and not a too big one
       if (n < 0 || n > 255) {
         // Return a DBus error to indicate a problem (shows how to send DBus errors)
@@ -151,7 +151,7 @@ function proceed() {
 
       return ret; // 'ret' is an array, to return an array, we simply return it
     },
-    GetCustomStruct: function() {
+    GetCustomStruct: function () {
       var min = -0x7fffffff - 1;
       var max = 0x7fffffff;
       var string =
@@ -165,7 +165,7 @@ function proceed() {
 			*/
       return [string, int32, bool];
     },
-    GetDictEntry: function() {
+    GetDictEntry: function () {
       var min = -0x7fffffff - 1;
       var max = 0x7fffffff;
       var key1 = 'str1';
