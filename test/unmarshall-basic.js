@@ -2,7 +2,7 @@ const Buffer = require('safe-buffer').Buffer;
 const marshall = require('../lib/marshall');
 const unmarshall = require('../lib/unmarshall');
 const assert = require('assert');
-const Long = require('@homebridge/long');
+const Long = require('long');
 
 var LongMaxS64 = Long.fromString('9223372036854775807', false);
 var LongMinS64 = Long.fromString('-9223372036854775808', false);
