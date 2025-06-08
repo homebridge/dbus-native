@@ -1,21 +1,32 @@
-import {EventEmitter} from 'events'
-import {Socket} from 'net'
+import { EventEmitter } from "events";
+import { Socket } from "net";
 
-interface DbusInterface extends EventEmitter {
-	on(event: string, callback: (error: Error, data: any) => void): void
+export function systemBus(): MessageBus;
+
+export class MessageBus {
+  connection: BusConnection;
+  public invoke(message: any, callback: (error: { name: string, message: any } | undefined, value: any) => void): void;
+  public getService(name: string): DBusService;
 }
 
-interface DbusService {
-	getInterface(path: string, interfaceName: string, callback: (error: Error, interface: DbusInterface) => void): void
+export class BusConnection extends EventEmitter {
+  public stream: Socket;
 }
 
-interface DbusBus {
-	getService(serviceName: string): DbusService
+export class DBusService {
+  public name: string;
+  public bus: MessageBus;
+  public getObject(name: string, callback: (error: null | Error, obj?: DBusObject) => void): DBusObject;
+  public getInterface(objName: string, ifaceName: string, callback: (error: null | Error, iface?: DBusInterface) => void): void;
 }
 
-function systemBus(): DbusBus
-function sessionBus(): DbusBus
+export class DBusObject {
+  public name: string;
+  public service: DBusService;
+  public as(name: string): DBusInterface;
+}
 
-export {systemBus, sessionBus}
-export default {systemBus, sessionBus}
-
+export class DBusInterface extends EventEmitter implements Record<string, any> {
+  public $parent: DBusObject;
+  public $name: string; // string interface name
+}
