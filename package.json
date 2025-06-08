@@ -15,7 +15,8 @@
     "bin/dbus2js.js",
     "lib/*",
     "index.js",
-    "package.json"
+    "package.json",
+    "index.d.ts"
   ],
   "directories": {
     "lib": "lib",
