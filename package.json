@@ -1,7 +1,7 @@
 {
   "name": "@homebridge/dbus-native",
   "author": "Andrey Sidorov <sidorares@yandex.com>",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "keywords": [
     "dbus",
     "dcop",
@@ -54,14 +54,14 @@
   "devDependencies": {
     "@types/minimist": "^1.2.5",
     "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.5",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-markdown": "^5.1.0",
-    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-prettier": "^5.5.3",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.0",
-    "mocha": "^11.5.0",
+    "lint-staged": "^16.1.2",
+    "mocha": "^11.7.1",
     "nyc": "^17.1.0",
-    "prettier": "^3.5.3"
+    "prettier": "^3.6.2"
   },
   "scripts": {
     "lint": "npm run lint:docs && npm run lint:code",
