@@ -1,6 +1,5 @@
 const Buffer = require('safe-buffer').Buffer;
 const net = require('net');
-const abs = require('abstract-socket');
 const hexy = require('hexy').hexy;
 const buffs = require('buffers');
 const fs = require('fs');
@@ -26,7 +25,7 @@ net
     var buff = '';
     var b = buffs();
     var connected = false;
-    var cli = abs.createConnection('\0/tmp/dbus-WDSwP4V64O');
+    var cli = net.createConnection('\0/tmp/dbus-WDSwP4V64O');
     s.on('data', function (d) {
       if (connected) {
         cli.write(d);
