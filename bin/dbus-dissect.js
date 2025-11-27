@@ -2,7 +2,6 @@
 // needs a lot of cleanup but does the job
 
 const net = require('net');
-const abs = require('abstract-socket');
 const through2 = require('through2');
 const minimist = require('minimist');
 const message = require('../lib/message');
@@ -35,8 +34,7 @@ net
     var buff = '';
     var connected = false;
 
-    var socket = isSystemBus ? net : abs;
-    var cli = socket.connect(address);
+    var cli = net.connect(address);
 
     s.on('data', function (d) {
       if (connected) {

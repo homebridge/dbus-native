@@ -17,7 +17,8 @@ Fork Status
 ------------
 
 This fork is maintained with the following changes:
-* Removed the optional `abstract-socket` dependency for faster installs
+* Raised minimum supported Node.js version to 20.8
+* Removed the `abstract-socket` dependency in favor of Node.js builtin support
 * Moved to our `long.js` fork to work around a crash on `ARMv6` platforms running node 16.1+
 * Updated dependencies (including `prettier`, which has made style changes to a lot of files)
 
