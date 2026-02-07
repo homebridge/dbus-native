@@ -16,6 +16,7 @@
     "lib/*",
     "index.js",
     "package.json",
+    "package-lock.json",
     "index.d.ts"
   ],
   "directories": {
