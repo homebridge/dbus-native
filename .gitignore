@@ -17,3 +17,4 @@ npm-debug.log
 .nyc_output
 
 .idea
+.DS_Store
