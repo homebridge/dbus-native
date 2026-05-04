@@ -62,7 +62,7 @@
     "lint-staged": "^16.4.0",
     "mocha": "^11.7.5",
     "nyc": "^18.0.0",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.3"
   },
   "scripts": {
     "lint": "npm run lint:docs && npm run lint:code",
