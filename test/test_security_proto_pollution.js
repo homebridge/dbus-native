@@ -31,10 +31,7 @@ describe('bus.exportedObjects resists prototype pollution', function () {
       signals: {},
       properties: {}
     });
-    assert.strictEqual(
-      Object.getPrototypeOf(bb.b.exportedObjects['/x']),
-      null
-    );
+    assert.strictEqual(Object.getPrototypeOf(bb.b.exportedObjects['/x']), null);
   });
 
   it('an interface named "__proto__" does not pollute Object.prototype', function () {
@@ -48,7 +45,11 @@ describe('bus.exportedObjects resists prototype pollution', function () {
       properties: {}
     });
     var probe = {};
-    assert.strictEqual(probe.polluted, undefined, 'Object.prototype must not have a polluted property');
+    assert.strictEqual(
+      probe.polluted,
+      undefined,
+      'Object.prototype must not have a polluted property'
+    );
     assert.notStrictEqual(Object.prototype.constructor, sentinel);
   });
 });
