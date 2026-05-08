@@ -1,0 +1,12 @@
+{
+    "interfaces": [
+        {
+            "name": "com.example.WithChildren",
+            "methods": [
+                {"name": "DoThing", "signature": "s"}
+            ],
+            "properties": []
+        }
+    ],
+    "nodes": ["alpha", "beta", "gamma"]
+}
