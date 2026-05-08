@@ -1,0 +1,14 @@
+<!DOCTYPE node PUBLIC
+    "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+    "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd" >
+<node>
+  <interface name="com.example.WithChildren">
+    <method name="DoThing">
+      <arg name="input" direction="in" type="s"/>
+      <arg name="output" direction="out" type="s"/>
+    </method>
+  </interface>
+  <node name="alpha"/>
+  <node name="beta"/>
+  <node name="gamma"/>
+</node>

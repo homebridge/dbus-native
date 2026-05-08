@@ -3,15 +3,17 @@ const fs = require('fs');
 const path = require('path');
 
 // Introspection test cases
-var testCases = [{ desc: 'Basic Example', file: 'example' }];
+var testCases = [
+  { desc: 'Basic Example', file: 'example' },
+  { desc: 'Interface with sub-nodes', file: 'with-subnodes' }
+];
 
 describe('given introspect xml', function () {
-  for (var i = 0; i < testCases.length; ++i) {
-    var curTest = testCases[i];
+  testCases.forEach(function (curTest) {
     it('should correctly process ' + curTest.desc, function () {
       return testXml(curTest.file);
     });
-  }
+  });
 });
 
 const dummyObj = {};
@@ -44,8 +46,25 @@ function testXml(fname) {
   });
 }
 
-/*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
-function checkIntrospection(test_obj, proxy, _nodes) {
+function checkIntrospection(test_obj, proxy, nodes) {
+  if (test_obj.nodes) {
+    if (!Array.isArray(nodes))
+      throw new Error('Expected nodes array, got ' + typeof nodes);
+    if (nodes.length !== test_obj.nodes.length)
+      throw new Error(
+        'Expected ' +
+          test_obj.nodes.length +
+          ' sub-nodes, got ' +
+          nodes.length +
+          ' (' +
+          JSON.stringify(nodes) +
+          ')'
+      );
+    for (var n = 0; n < test_obj.nodes.length; ++n) {
+      if (nodes.indexOf(test_obj.nodes[n]) === -1)
+        throw new Error('Missing sub-node: ' + test_obj.nodes[n]);
+    }
+  }
   for (var i = 0; i < test_obj.interfaces.length; ++i) {
     var testInterface = test_obj.interfaces[i];
     if (proxy[testInterface.name] === undefined)
