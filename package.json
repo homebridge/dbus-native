@@ -60,8 +60,8 @@
     "eslint-plugin-markdown": "^5.1.0",
     "eslint-plugin-prettier": "^5.5.5",
     "husky": "^9.1.7",
-    "lint-staged": "^16.4.0",
-    "mocha": "^11.7.5",
+    "lint-staged": "^17.0.5",
+    "mocha": "^11.7.6",
     "nyc": "^18.0.0",
     "prettier": "^3.8.3"
   },

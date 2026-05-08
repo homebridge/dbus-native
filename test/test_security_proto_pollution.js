@@ -31,10 +31,7 @@ describe('bus.exportedObjects resists prototype pollution', function () {
       signals: {},
       properties: {}
     });
-    assert.strictEqual(
-      Object.getPrototypeOf(bb.b.exportedObjects['/x']),
-      null
-    );
+    assert.strictEqual(Object.getPrototypeOf(bb.b.exportedObjects['/x']), null);
   });
 
   it('an interface named "__proto__" stores under the literal key without mutating the entry map prototype', function () {
