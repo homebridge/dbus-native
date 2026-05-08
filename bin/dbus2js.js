@@ -2,9 +2,6 @@
 
 const fs = require('fs');
 const xml2js = require('xml2js');
-const xml2js_opts = Object.assign({}, xml2js.defaults['0.1'], {
-  explicitArray: true
-});
 const dbus = require('../index');
 const minimist = require('minimist');
 
@@ -49,15 +46,18 @@ if (!argv.server) {
 
     var output = [];
 
-    var parser = new xml2js.Parser(xml2js_opts);
+    var parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
       if (err) die(err);
 
+      // xml2js default config wraps the document in a root key matching
+      // the outermost element ("node") and exposes attributes under '$'.
+      var root = result && result.node ? result.node : result;
       var ifaceName, method, property, iface, arg, signature;
-      var ifaces = result['interface'];
+      var ifaces = root['interface'] || [];
       for (var i = 0; i < ifaces.length; ++i) {
         iface = ifaces[i];
-        ifaceName = iface['@'].name;
+        ifaceName = iface['$'].name;
 
         output.push(`module.exports['${ifaceName}'] = function(bus) {`);
         output.push(
@@ -82,12 +82,12 @@ if (!argv.server) {
         for (var m = 0; iface.method && m < iface.method.length; ++m) {
           method = iface.method[m];
           signature = '';
-          const methodName = method['@'].name;
+          const methodName = method['$'].name;
 
           var decl = `    this.${methodName} = function(`;
           var params = [];
           for (var a = 0; method.arg && a < method.arg.length; ++a) {
-            arg = method.arg[a]['@'];
+            arg = method.arg[a]['$'];
             if (arg.direction === 'in') {
               decl += `${arg.name}, `;
               params.push(arg.name);
