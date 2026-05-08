@@ -52,7 +52,7 @@ function createStream(opts) {
           var eventStream = require('event-stream');
           var spawn = require('child_process').spawn;
           var args = [];
-          for (var n = 1; params['arg' + n]; n++) args.push(params['arg' + n]);
+          for (var n = 0; params['arg' + n]; n++) args.push(params['arg' + n]);
           var child = spawn(params.path, args);
 
           return eventStream.duplex(child.stdin, child.stdout);
