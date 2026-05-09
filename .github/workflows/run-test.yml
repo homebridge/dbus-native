@@ -6,6 +6,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build_and_test:
     uses: homebridge/.github/.github/workflows/nodejs-build-and-test.yml@latest
