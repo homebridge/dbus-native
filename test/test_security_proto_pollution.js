@@ -59,7 +59,10 @@ describe('bus.exportedObjects resists prototype pollution', function () {
     // confirming the iface name is treated as a regular property, not the
     // prototype slot.
     var stored = entryMap['__proto__'];
-    assert.ok(Array.isArray(stored), 'stored entry must be the [iface, obj] tuple');
+    assert.ok(
+      Array.isArray(stored),
+      'stored entry must be the [iface, obj] tuple'
+    );
     assert.strictEqual(stored[0], ifaceDescriptor);
     assert.strictEqual(stored[1], obj);
   });

@@ -62,7 +62,9 @@ describe('stdifaces Properties.Set writes caller-supplied value', function () {
       { body: ['com.example.Iface', 'MyProp', null] },
       { body: ['com.example.Iface', 'MyProp', []] }, // empty variant
       { body: ['com.example.Iface', 'MyProp', [[{ type: 's', child: [] }]]] }, // variant missing value array
-      { body: ['com.example.Iface', 'MyProp', [[{ type: 's', child: [] }], []]] } // empty value array
+      {
+        body: ['com.example.Iface', 'MyProp', [[{ type: 's', child: [] }], []]]
+      } // empty value array
     ];
     malformed.forEach(function (partial) {
       var impl = { MyProp: 'untouched' };
