@@ -5,7 +5,7 @@ const assert = require('assert');
 
 // Regression: a handler for a method whose return signature declares more
 // than one top-level type could only ever return a single value, because the
-// result was always wrapped as body=[result]. This made it impossible to 
+// result was always wrapped as body=[result]. This made it impossible to
 // replicate the behavior of certain D-Bus methods, such as
 // org.freedesktop.systemd1.Manager.EnableUnitFiles, whose signature 'ba(sss)'
 // carries two return values. The fix inspects the return signature: when it
@@ -139,13 +139,7 @@ describe('bus packs multiple method return values', function () {
 
   it('splits a boolean and an array-of-structs return', function (done) {
     var bb = makeBus();
-    var items = [
-      [
-        'type',
-        '/path/to/first',
-        '/path/to/second'
-      ]
-    ];
+    var items = [['type', '/path/to/first', '/path/to/second']];
     exportMethod(bb, 'ba(sss)', function () {
       return [true, items];
     });
