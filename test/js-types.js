@@ -11,7 +11,8 @@ function test(signature, data) {
     console.log('signature   :', signature);
     console.log('orig        :', data);
     console.log('unmarshalled:', result);
-    throw new Error("results don't match");
+    // carry the assertion error through - it holds the actual diff
+    throw new Error("results don't match", { cause: e });
   }
 }
 
