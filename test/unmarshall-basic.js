@@ -37,10 +37,15 @@ function test(signature, data, other_result, unmarshall_opts) {
     console.log('signature   :', signature);
     console.log('orig        :', data);
     console.log('unmarshalled:', result);
+    // carry the assertion error through - it holds the actual diff
     if (other_result !== undefined) {
-      throw new Error(`results don't match (${result}) != (${other_result})`);
+      throw new Error(`results don't match (${result}) != (${other_result})`, {
+        cause: e
+      });
     } else {
-      throw new Error(`results don't match (${data}) != (${result})`);
+      throw new Error(`results don't match (${data}) != (${result})`, {
+        cause: e
+      });
     }
   }
 }
