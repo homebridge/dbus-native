@@ -23,7 +23,7 @@ sockjs_echo.on('connection', function (conn) {
         console.log(ee);
       }
       //console.log('sent to dbus');
-    } catch (e) {}
+    } catch {}
   });
   dbusConn.on('message', function (msg) {
     //console.log('GOT MESSAGE', msg);
