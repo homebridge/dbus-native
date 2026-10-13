@@ -3,10 +3,27 @@ import { Socket } from "net";
 
 export function systemBus(): MessageBus;
 
+export function sessionBus(options?: { busAddress?: string }): MessageBus;
+
+export interface InterfaceDescriptor {
+  name: string;
+  methods?: Record<string, [string, string, string[]?, string[]?]>;
+  signals?: Record<string, [string, ...string[]]>;
+  properties?: Record<string, string>;
+}
+
+export interface ReplyError {
+  name?: string;
+  message?: string;
+  body?: unknown[];
+}
+
 export class MessageBus {
   connection: BusConnection;
   public invoke(message: any, callback: (error: { name: string, message: any } | undefined, value: any) => void): void;
   public getService(name: string): DBusService;
+  public exportInterface(implementation: object, path: string, descriptor: InterfaceDescriptor): void;
+  public requestName(name: string, flags: number, callback?: (error: ReplyError | null | undefined, result?: number) => void): void;
 }
 
 export class BusConnection extends EventEmitter {
