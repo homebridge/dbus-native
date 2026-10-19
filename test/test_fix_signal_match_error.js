@@ -76,7 +76,9 @@ describe('signal subscription reports a refused match instead of throwing', func
     getInterface(stack, function (iface) {
       assert.doesNotThrow(function () {
         iface.on('StateChanged', function () {
-          assert.fail('the handler must not be registered when AddMatch failed');
+          assert.fail(
+            'the handler must not be registered when AddMatch failed'
+          );
         });
       });
 
@@ -242,4 +244,3 @@ describe('unsubscribing after a refused match does not ask dbus to undo it', fun
     });
   });
 });
-

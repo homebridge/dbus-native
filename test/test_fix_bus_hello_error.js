@@ -140,4 +140,3 @@ describe('a bus whose Hello was refused refuses to be used', function () {
     done();
   });
 });
-
