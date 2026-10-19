@@ -1,9 +1,20 @@
 import { EventEmitter } from "events";
 import { Socket } from "net";
+import { Duplex } from "stream";
 
 export function systemBus(): MessageBus;
 
-export function sessionBus(options?: { busAddress?: string }): MessageBus;
+export interface ClientOptions {
+  busAddress?: string;
+  socket?: string;
+  host?: string;
+  port?: number;
+  stream?: Duplex;
+  authMethods?: string[];
+  direct?: boolean;
+}
+
+export function sessionBus(options?: ClientOptions): MessageBus;
 
 export interface InterfaceDescriptor {
   name: string;
@@ -13,14 +24,14 @@ export interface InterfaceDescriptor {
 }
 
 export interface ReplyError {
-  name?: string;
-  message?: string;
+  name: string;
+  message: string;
   body?: unknown[];
 }
 
 export class MessageBus {
   connection: BusConnection;
-  public invoke(message: any, callback: (error: { name: string, message: any } | undefined, value: any) => void): void;
+  public invoke(message: any, callback: (error: ReplyError | null | undefined, value: any) => void): void;
   public getService(name: string): DBusService;
   public exportInterface(implementation: object, path: string, descriptor: InterfaceDescriptor): void;
   public requestName(name: string, flags: number, callback?: (error: ReplyError | null | undefined, result?: number) => void): void;
