@@ -55,15 +55,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/minimist": "^1.2.5",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.7",
     "globals": "^17.13.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^17.6.0",
     "mocha": "^12.0.3",
-    "nyc": "^18.0.0",
     "prettier": "^3.9.10",
     "prettier-markdown": "^0.1.8"
   },
@@ -75,15 +70,7 @@
     "test:raw": "mocha",
     "prettier": "prettier --write index.js '{bin,lib,examples,test}/**/*.js'",
     "prettier:docs": "prettier-markdown README.md",
-    "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
-    "precommit": "lint-staged",
     "prepublish": "npm prune"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ]
   },
   "prettier": {
     "semi": true,
