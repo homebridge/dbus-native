@@ -1,3 +1,18 @@
+> [!WARNING]
+> **This fork is no longer maintained.** As of HAP-NodeJS 2.2.4 / Homebridge 2.4.1,
+> Homebridge uses the upstream [`dbus-native`](https://github.com/sidorares/dbus-native)
+> package again, which is actively maintained. Please use `dbus-native` instead of
+> `@homebridge/dbus-native`. Existing versions stay on npm and will keep working, but will
+> receive no further fixes.
+
+Fork Status
+------------
+
+This fork was created to remove the optional `abstract-socket` dependency, work around an
+ARMv6 crash on Node 16.1+ via a `long.js` fork, and update dependencies. Upstream has since
+resolved these, so the fork is retired.
+
+
 <p align="center">
   <a href="https://homebridge.io"><img src="https://raw.githubusercontent.com/homebridge/branding/latest/logos/homebridge-color-round-stylized.png" height="140"></a>
 </p>
